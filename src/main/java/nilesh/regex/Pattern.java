@@ -25,10 +25,10 @@ public class Pattern
     private Automata compile ()
     {
         this.regex = sanitize(this.regex);
-        return NFA(this.regex);
+        return EpsilonNFA(this.regex);
     }
 
-    private Automata NFA (String regex)
+    private Automata EpsilonNFA (String regex)
     {
         int unionOccurrence = 0;
         Stack<Automata> stack = new Stack();
@@ -53,10 +53,10 @@ public class Pattern
                 unionOccurrence = stack.size();
             }
             else if (currChar == '(') {
-                // read ahead till the end of bracket and call NFA
+                // read ahead till the end of bracket and call EpsilonNFA
                 String expression = textBetweenBrackets(chars, count);
                 count += expression.length() + 1;
-                stack.push(NFA(expression));
+                stack.push(EpsilonNFA(expression));
             }
             else {
                 stack.push(fromChar(currChar));
