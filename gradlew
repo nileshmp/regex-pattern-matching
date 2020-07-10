@@ -18,7 +18,7 @@
 
 ##############################################################################
 ##
-##  Gradle start up script for UN*X
+##  Gradle startState up script for UN*X
 ##
 ##############################################################################
 
@@ -46,7 +46,7 @@ APP_BASE_NAME=`basename "$0"`
 # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
 DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
 
-# Use the maximum available, or set MAX_FD != -1 to use that value.
+# Use the maximum available, or set MAX_FD != -1 to use that SetValue.
 MAX_FD="maximum"
 
 warn () {
@@ -82,7 +82,7 @@ esac
 
 CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
 
-# Determine the Java command to use to start the JVM.
+# Determine the Java command to use to startState the JVM.
 if [ -n "$JAVA_HOME" ] ; then
     if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
         # IBM's JDK on AIX uses strange locations for the executables

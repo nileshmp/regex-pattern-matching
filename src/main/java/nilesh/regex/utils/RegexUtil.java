@@ -1,4 +1,4 @@
-package nilesh.regex;
+package nilesh.regex.utils;
 
 public class RegexUtil
 {
@@ -14,21 +14,19 @@ public class RegexUtil
 
     private static void validExpression (String regex)
     {
-        // union sign has to be followed by a character (non meta character)
+        // join sign has to be followed by a character (non meta character)
         char[] chars = regex.toCharArray();
         boolean foundUnion = false;
         for (char currChar : chars) {
-            if(currChar == '|')
-            {
+            if (currChar == '|') {
                 foundUnion = true;
             }
-            else if(foundUnion && currChar == '(')
+            else if (foundUnion && currChar == '(')
                 continue;
-            else if(foundUnion && (Character.isDigit(currChar) || Character.isAlphabetic(currChar)))
-            {
+            else if (foundUnion && (Character.isDigit(currChar) || Character.isAlphabetic(currChar))) {
                 break;
             }
-            else if(foundUnion && (!(Character.isDigit(currChar) || Character.isAlphabetic(currChar))))
+            else if (foundUnion && (!(Character.isDigit(currChar) || Character.isAlphabetic(currChar))))
                 throw new RuntimeException("Invalid input expression");
         }
     }
@@ -39,7 +37,7 @@ public class RegexUtil
         char[] chars = regex.toCharArray();
         int count = 0;
         for (char currChar : chars) {
-            if(currChar == '*' || currChar == '+' || currChar == '?') {
+            if (currChar == '*' || currChar == '+' || currChar == '?') {
                 count++;
                 continue;
             }
@@ -57,12 +55,12 @@ public class RegexUtil
         chars = regex.toCharArray();
         int bracketCount = 0;
         for (char currChar : chars) {
-            if(currChar == '(')
+            if (currChar == '(')
                 bracketCount++;
             else if (currChar == ')')
                 bracketCount--;
         }
-        if(bracketCount != 0)
+        if (bracketCount != 0)
             throw new RuntimeException("Invalid input expression");
     }
 
